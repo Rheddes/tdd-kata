@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { next_generation } from "./game";
 
 describe('Game of Life', () => {
     it('works for an empty board', () => {
@@ -6,7 +7,3 @@ describe('Game of Life', () => {
         expect(next_generation(board)).to.deep.equal([[]]);
     });
 });
-
-function next_generation(board: boolean[][]): boolean[][] {
-    return [[]];
-}
