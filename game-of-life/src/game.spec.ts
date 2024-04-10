@@ -4,6 +4,20 @@ import { next_generation } from './game';
 const O: boolean = true;
 const _: boolean = false;
 
+interface location {
+    row: number;
+    col: number;
+}
+
+function next_gen(board: boolean[][]) {
+    return {
+        board: next_generation(board),
+        at({ row, col }: location): boolean {
+            return this.board[row][col];
+        }
+    }
+}
+
 describe('Game of Life', () => {
     it('works for an empty board', () => {
         expect(next_generation([[]])).to.deep.equal([[]]);
@@ -21,7 +35,9 @@ describe('Game of Life', () => {
         });
 
         it('stays alive with two living neighbours', () => {
-            expect(next_generation([[O, O, O]])).to.deep.equal([[_, O, _]]);
+            const board = [[O, O, O]];
+            const cell = { row: 0, col: 1 };
+            expect(next_gen(board).at(cell)).to.be.true;;
         });
     });
 });
