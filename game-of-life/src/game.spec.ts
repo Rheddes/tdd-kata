@@ -27,6 +27,10 @@ describe('Game of Life', () => {
         it('stays dead with no neighbours', () => {
             expect(next_generation([[_]])).to.deep.equal([[_]]);
         });
+
+        it('stays dead with two living neighbours', () => {
+            expect(next_generation([[O, _, O]])).to.deep.equal([[_, _,_]]);
+        });
     });
 
     describe('alive cell', () => {
