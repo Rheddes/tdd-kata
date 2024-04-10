@@ -5,3 +5,7 @@ describe('Game of Life', () => {
         expect(next_generation([[]])).to.deep.equal([[]]);
     });
 });
+
+function next_generation(board: boolean[][]): boolean[][] {
+    return [[]];
+}
