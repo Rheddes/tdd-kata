@@ -31,6 +31,15 @@ describe('Game of Life', () => {
         it('stays dead with two living neighbours', () => {
             expect(next_gen([[O, _, O]]).at({ row: 0, col: 1})).to.be.false;
         });
+
+        it('comes to live with three living neighbours', () => {
+            const board = [
+                [_, O],
+                [O, _],
+                [_, O],
+            ];
+            expect(next_gen(board).at({ row: 1, col: 1 })).to.be.true;
+        });
     });
 
     describe('alive cell', () => {
