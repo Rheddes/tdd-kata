@@ -29,7 +29,7 @@ describe('Game of Life', () => {
         });
 
         it('stays dead with two living neighbours', () => {
-            expect(next_generation([[O, _, O]])).to.deep.equal([[_, _,_]]);
+            expect(next_gen([[O, _, O]]).at({ row: 0, col: 1})).to.be.false;
         });
     });
 
@@ -40,8 +40,7 @@ describe('Game of Life', () => {
 
         it('stays alive with two living neighbours', () => {
             const board = [[O, O, O]];
-            const cell = { row: 0, col: 1 };
-            expect(next_gen(board).at(cell)).to.be.true;;
+            expect(next_gen(board).at({ row: 0, col: 1})).to.be.true;;
         });
     });
 });
