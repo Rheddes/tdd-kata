@@ -12,5 +12,12 @@ describe('Game of Life', () => {
             const board = [[false]];
             expect(next_generation(board)).to.deep.equal([[false]]);
         });
+    });
+
+    describe('alive cell', () => {
+        it('dies when it has no neighbours', () => {
+            const board = [[true]];
+            expect(next_generation(board)).to.deep.equal([[false]]);
+        })
     })
 });
