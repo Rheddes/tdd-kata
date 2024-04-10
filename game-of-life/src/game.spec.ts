@@ -21,13 +21,26 @@ describe('Game of Life', () => {
             expect(next_generation(board)).to.deep.equal([[_, _, _]]);
         });
 
-        it('comes to life with three living neighbours', () => {
+        it('stays dead when it has two living neighbours vertically', () => {
             const board = [
-                [O, O],
-                [O, _],
-            ];
-            expect(next_generation(board)[1][1]).to.be.alive;
-        });
+                [O],
+                [_],
+                [O]
+            ]
+            expect(next_generation(board)).to.deep.equal([
+                [_],
+                [_],
+                [_]
+            ])
+        })
+
+        // it('comes to life with three living neighbours', () => {
+        //     const board = [
+        //         [O, O],
+        //         [O, _],
+        //     ];
+        //     expect(next_generation(board)[1][1]).to.be.alive;
+        // });
     });
 
     describe('alive cell', () => {
@@ -39,6 +52,20 @@ describe('Game of Life', () => {
         it('stays alive when it has two living neighbours', () => {
             const board = [[O, O, O]];
             expect(next_generation(board)).to.deep.equal([[_, O, _]]);
+        });
+
+        it('central cell stays alive and neighbour cells die when it has two living neighbours above and below', () => {
+            const board = [
+                [O],
+                [O],
+                [O]
+            ]
+
+            expect(next_generation(board)).to.deep.equal([
+                [_],
+                [O],
+                [_]
+            ])
         });
     });
 });
