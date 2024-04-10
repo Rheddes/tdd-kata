@@ -83,7 +83,7 @@ describe('Game of Life', () => {
                 [_, O, _],
                 [_, _, _]
             ])
-        })
+        });
 
         it('central cell stays alive and neighbour cells die when it has two different diagonal neighbours', () => {
             const board = [
@@ -97,6 +97,6 @@ describe('Game of Life', () => {
                 [_, O, _],
                 [_, _, _]
             ])
-        })
+        });
     });
 });
