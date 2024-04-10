@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { next_generation } from './game';
 
+const O: boolean = true;
 const _: boolean = false;
 
 describe('Game of Life', () => {
@@ -16,7 +17,7 @@ describe('Game of Life', () => {
 
     describe('alive cell', () => {
         it('dies with no neighbours', () => {
-            expect(next_generation([[true]])).to.deep.equal([[_]]);
+            expect(next_generation([[O]])).to.deep.equal([[_]]);
         });
     });
 });
