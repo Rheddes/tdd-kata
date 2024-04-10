@@ -21,6 +21,11 @@ describe('Game of Life', () => {
         it('dies when it has no neighbours', () => {
             const board = [[O]];
             expect(next_generation(board)).to.deep.equal([[_]]);
-        })
+        });
+
+        it('stays alive when it has two living neighbours', () => {
+            const board = [[O, O, O]];
+            expect(next_generation(board)).to.deep.equal([[_, O, _]]);
+        });
     });
 });
