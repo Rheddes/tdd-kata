@@ -17,6 +17,7 @@ function get_number_of_living_neighbours_of(row_idx: number, col_idx: number, bo
         get_cell_at(row_idx-1, col_idx+1, board),
         get_cell_at(row_idx, col_idx-1, board),
         get_cell_at(row_idx, col_idx+1, board),
+        get_cell_at(row_idx+1, col_idx-1, board),
         get_cell_at(row_idx+1, col_idx, board),
         get_cell_at(row_idx+1, col_idx+1, board),
     ].filter(is_alive).length;
