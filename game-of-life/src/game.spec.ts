@@ -51,5 +51,13 @@ describe('Game of Life', () => {
             const board = [[O, O, O]];
             expect(next_gen(board).at({ row: 0, col: 1})).to.be.true;;
         });
+
+        it('stays alive with tree living neighborus', () => {
+            const board = [
+                [_, O, _],
+                [O, O, O],
+            ];
+            expect(next_gen(board).at({ row: 1, col: 1})).to.be.true;
+        })
     });
 });
