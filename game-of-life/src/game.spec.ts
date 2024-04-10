@@ -20,6 +20,17 @@ describe('Game of Life', () => {
             const board = [[O, _, O]];
             expect(next_generation(board)).to.deep.equal([[_, _, _]]);
         });
+
+        it('comes to life with three living neighbours', () => {
+            const board = [
+                [O, O],
+                [O, _],
+            ];
+            expect(next_generation(board)).to.deep.equal([
+                [O, O],
+                [O, O],
+            ]);
+        });
     });
 
     describe('alive cell', () => {
