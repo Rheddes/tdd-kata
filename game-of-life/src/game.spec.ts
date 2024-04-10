@@ -29,7 +29,7 @@ describe('Game of Life', () => {
         });
 
         it('stays dead with two living neighbours', () => {
-            expect(next_gen([[O, _, O]]).at({ row: 0, col: 1})).to.be.false;
+            expect(next_gen([[O, _, O]]).at({ row: 0, col: 1})).to.be.dead;
         });
 
         it('comes to live with three living neighbours', () => {
@@ -38,7 +38,7 @@ describe('Game of Life', () => {
                 [O, _],
                 [_, O],
             ];
-            expect(next_gen(board).at({ row: 1, col: 1 })).to.be.true;
+            expect(next_gen(board).at({ row: 1, col: 1 })).to.be.alive;
         });
     });
 
@@ -49,7 +49,7 @@ describe('Game of Life', () => {
 
         it('stays alive with two living neighbours', () => {
             const board = [[O, O, O]];
-            expect(next_gen(board).at({ row: 0, col: 1})).to.be.true;;
+            expect(next_gen(board).at({ row: 0, col: 1})).to.be.alive;;
         });
 
         it('stays alive with tree living neighborus', () => {
@@ -57,7 +57,7 @@ describe('Game of Life', () => {
                 [_, O, _],
                 [O, O, O],
             ];
-            expect(next_gen(board).at({ row: 1, col: 1})).to.be.true;
+            expect(next_gen(board).at({ row: 1, col: 1})).to.be.alive;
         })
     });
 });
